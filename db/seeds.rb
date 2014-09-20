@@ -7,7 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Nagger.delete_all
+Complaint.delete_all
+
 
 (1..5).each do |number|
   Nagger.create( email: "joe.doe#{number}@example.com", password: "test1234", password_confirmation: "test1234")
 end
+
