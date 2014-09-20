@@ -2,14 +2,15 @@ class ComplaintsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
 	expose(:complaints)
+	expose(:complaint)
 
-	def index		
+	def index
 	end
 
-	def new		
+	def new
 	end
 
-	def show		
+	def show
 	end
 
 	def create
@@ -21,7 +22,7 @@ class ComplaintsController < ApplicationController
 			render action: 'new'
 		end
 	end
-	
+
 	private
 
 	def complaint_params
