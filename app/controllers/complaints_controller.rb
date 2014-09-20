@@ -35,30 +35,34 @@ class ComplaintsController < ApplicationController
       end
     else
     	redirect_to complaints_path, notice:  "You can't love yourself!"
-    
+
     end
   end
 
-  	def edit  		
+  	def edit
   	end
 
   	def update
   		if current_nagger != complaint.nagger
-  			redirect_to complaints_path, notice: 'You\'re not allowed to delete this complaint'
+  			redirect_to complaints_path
+  			flash[:alert] = 'You\'re not allowed to update this complaint'
   		else
   			if self.complaint.update(complaint_params)
   				redirect_to complaint_path
+  				flash[:notice] = 'The complaint has been updated!'
   			end
-  		end   		
+  		end
   	end
 
-  	def delete
+  	def destroy
   		if current_nagger != complaint.nagger
-  			redirect_to complaints_path, notice: 'You\'re not allowed to delete this complaint'
+  			redirect_to complaints_path
+  			flash[:alert] = 'You\'re not allowed to delete this complaint'
   		else
   			complaint.destroy
   			redirect_to complaints_path
-  		end  			
+  			flash[:notice] = 'The complaint has been deleted!'
+  		end
   	end
 
 	private

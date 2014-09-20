@@ -8,21 +8,16 @@
     %th
     %th
     %th
+    %th <3
 
   - complaints.each do |complaint|
     %tr
       %td= complaint.name
       %td= complaint.content
       %td= complaint.url
-
-      
-
       %td= link_to 'Show', complaint
       %td= link_to 'Edit', edit_complaint_path(complaint)
       %td= link_to 'Destroy', complaint, method: :delete, data: { confirm: 'Are you sure?' }
-
-
-
       %td= link_to "Love it!", loveit_complaint_path(complaint), method: :post
 %br
 
