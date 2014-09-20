@@ -43,6 +43,9 @@ gem 'decent_exposure'
 gem 'decent_decoration'
 gem 'draper'
 
+gem 'squeel'
+gem 'pry'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
