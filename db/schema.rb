@@ -11,17 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140920101213) do
+=======
+ActiveRecord::Schema.define(version: 20140920102408) do
+>>>>>>> cb2c835bb596f5e6d833273cea87a001c3cc5e71
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
   create_table "complaints", force: true do |t|
     t.string   "name"
     t.string   "content"
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+=======
+  create_table "loves", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "nagger_id"
+    t.integer  "complaint_id"
+>>>>>>> cb2c835bb596f5e6d833273cea87a001c3cc5e71
   end
 
   create_table "naggers", force: true do |t|
