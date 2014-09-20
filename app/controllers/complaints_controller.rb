@@ -1,9 +1,8 @@
 class ComplaintsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
-	#expose(:complaints)
-	#expose(:love)
-
+	expose(:complaints)
+	expose(:love)
 
 	def index
 	end
@@ -39,7 +38,7 @@ class ComplaintsController < ApplicationController
   end
 
 	private
-	
+
 	def complaint_params
 		params.require(:complaint).permit(:name, :content, :url)
 	end
