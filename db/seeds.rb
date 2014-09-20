@@ -14,3 +14,8 @@ Complaint.delete_all
   Nagger.create( email: "joe.doe#{number}@example.com", password: "test1234", password_confirmation: "test1234")
 end
 
+(1..20).each do |number|
+  hate = Complaint.create(name: "Hate#{number}",
+                         content: "Hate everything #{number}")
+  Nagger.all.sample.complaints << hate
+end
