@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   root 'complaints#index'
 
   devise_for :naggers
+  resources :complaints do
+    member do
+      post 'love'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
