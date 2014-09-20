@@ -5,12 +5,18 @@
     %th Name
     %th Content
     %th Url
+    %th
+    %th
+    %th
 
   - complaints.each do |complaint|
     %tr
       %td= complaint.name
       %td= complaint.content
       %td= complaint.url
+      %td= link_to 'Show', complaint
+      %td= link_to 'Edit', edit_complaint_path(complaint)
+      %td= link_to 'Destroy', complaint, method: :delete, data: { confirm: 'Are you sure?' }
 %br
 
 = link_to 'New complaint', new_complaint_path

@@ -1,0 +1,22 @@
+%p#notice= notice
+
+%p
+
+  %b Name:
+  = complaint.name
+  %br
+  %br
+
+  %b Content
+  = complaint.content
+  %br
+  %br
+
+  %b Url
+  = complaint.url
+  %br
+  %br
+
+= link_to 'Edit', edit_complaint_path(complaint)
+\|
+= link_to 'Back', complaints_path, class: 'btn btn-primary'
