@@ -2,7 +2,7 @@ require 'pry'
 
 class ComplaintsController < ApplicationController
 	before_action :authenticate_nagger!, except: [:index, :show]
-  before_action :check_date_create?, only: [:create]
+  before_action :check_date_create, only: [:create]
   expose(:complaints)
   expose(:complaint)
   expose(:love)
@@ -33,7 +33,7 @@ class ComplaintsController < ApplicationController
         redirect_to complaints_path
         flash[:notice] = "You love it!"
       else
-        redirect_to complaints_path, notice: "Error"
+        redirect_to complaints_path, alert: "You've already loved it!"
       end
     else
       redirect_to complaints_path, notice:  "You can't love yourself!"
@@ -73,7 +73,10 @@ class ComplaintsController < ApplicationController
     params.require(:complaint).permit(:name, :content, :url)
   end
 
-  def check_date_create?
-    Complaint.where('nagger_id = ?', current_nagger.id).where('created_at >= ?', Date.today).count <= 3
+  def check_date_create
+    if Complaint.where('nagger_id = ?', current_nagger.id).where('created_at >= ?', Date.today).count > 3
+      redirect_to complaints_path
+      flash[:alert] = 'Too many complaints, today!'
+    end
   end
 end
