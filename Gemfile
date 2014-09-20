@@ -39,6 +39,7 @@ gem 'faker'
 gem 'tzinfo-data'
 gem 'tzinfo'
 
+gem 'decent_exposure'
 gem 'decent_decoration'
 gem 'draper'
 

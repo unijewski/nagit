@@ -10,10 +10,7 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-<<<<<<< HEAD
 
-=======
->>>>>>> b7dc893ac93a37c2d17af4163e15d1fdee0f21ae
 ActiveRecord::Schema.define(version: 20140920102408) do
 
   # These are extensions that must be enabled in order to support this database
