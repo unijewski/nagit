@@ -1,8 +1,8 @@
 class ComplaintsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
-	#expose(:complaints)
-	#expose(:love)
+	expose(:complaints)
+	expose(:love)
 
 
 	def index
