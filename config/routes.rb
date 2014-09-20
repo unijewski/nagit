@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :complaints
+
+  root 'complaints#index'
+
   devise_for :naggers
   resources :complaints do
     member do

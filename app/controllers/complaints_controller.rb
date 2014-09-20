@@ -4,13 +4,14 @@ class ComplaintsController < ApplicationController
 	#expose(:complaints)
 	#expose(:love)
 
-	def index		
+
+	def index
 	end
 
-	def new		
+	def new
 	end
 
-	def show		
+	def show
 	end
 
 	def create
@@ -22,6 +23,7 @@ class ComplaintsController < ApplicationController
 			render action: 'new'
 		end
 	end
+
 	def love
     unless @complaint.user == current_user
       Love.user = current_user
@@ -36,7 +38,6 @@ class ComplaintsController < ApplicationController
     end
   end
 
-	
 	private
 	
 	def complaint_params

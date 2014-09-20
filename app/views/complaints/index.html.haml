@@ -1,0 +1,16 @@
+%h1 Listing complaints
+
+%table.table.table-striped.table-hover
+  %tr
+    %th Name
+    %th Content
+    %th Url
+
+  - complaints.each do |complaint|
+    %tr
+      %td= complaint.name
+      %td= complaint.content
+      %td= complaint.url
+%br
+
+= link_to 'New complaint', new_complaint_path
