@@ -16,6 +16,7 @@ end
 
 (1..20).each do |number|
   hate = Complaint.create(name: "Hate#{number}",
-                         content: "Hate everything #{number}")
+                         content: "Hate everything #{number}",
+                         url: Faker::Internet.url('example.com'))
   Nagger.all.sample.complaints << hate
 end
