@@ -39,6 +39,8 @@ gem 'faker'
 gem 'tzinfo-data'
 gem 'tzinfo'
 
+gem 'decent_decoration'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
