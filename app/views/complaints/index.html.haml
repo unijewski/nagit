@@ -24,3 +24,27 @@
 %br
 
 = link_to 'New complaint', new_complaint_path
+
+%h1 Top 5 Naggers
+
+%table.table.table-striped.table-hover
+  %tr 
+    %th Email
+    %th Hates number
+  - @top_5_naggers.each do |nagger|
+    %tr
+      %td= nagger.email
+      %td= nagger.complaints.count
+
+%br
+
+%h1 Top 5 Complaints
+
+%table.table.table-striped.table-hover
+  %tr 
+    %th Complaint Title
+    %th Loves
+  - @top_5_complaints.each do |complaint|
+    %tr
+      %td= complaint.name
+      %td= complaint.loves.count

@@ -1,5 +1,3 @@
-require 'pry'
-
 class ComplaintsController < ApplicationController
 	before_action :authenticate_nagger!, except: [:index, :show]
   before_action :check_date_create, only: [:create]
@@ -8,6 +6,8 @@ class ComplaintsController < ApplicationController
   expose(:love)
 
   def index
+    @top_5_naggers = Complaint.top_5_naggers
+    @top_5_complaints = Complaint.top_5_complaints
   end
 
   def new
