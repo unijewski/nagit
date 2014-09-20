@@ -15,6 +15,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 #frontend
 gem 'haml'
+gem 'simple_form', '~> 3.1.0rc'
 #devise
 gem 'devise'
 # Use jquery as the JavaScript library
