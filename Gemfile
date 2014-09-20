@@ -40,6 +40,7 @@ gem 'tzinfo-data'
 gem 'tzinfo'
 
 gem 'decent_decoration'
+gem 'draper'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
