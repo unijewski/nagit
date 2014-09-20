@@ -3,7 +3,7 @@ class Complaint < ActiveRecord::Base
 
   validates :name, presence: true
   validates :content, presence: true
-  validates :url, format: { with: URL_RGX }
+  validates :url, format: { with: URL_RGX }, :allow_blank => true
 
   belongs_to :nagger
 end
