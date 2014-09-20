@@ -16,7 +16,7 @@ class ComplaintsController < ApplicationController
 
 	def create
 		self.complaint = Complaint.new(complaint_params)
-
+		complaint.nagger = current_nagger
 		if complaint.save
 			redirect_to complaint, notice: 'Thank you for your complaint'
 		else
@@ -24,17 +24,18 @@ class ComplaintsController < ApplicationController
 		end
 	end
 
-	def love
-    unless @complaint.user == current_user
-      Love.user = current_user
-      if Love.save
-        redirect_to complaint_path(complaint)
+	def loveit
+    unless complaint.nagger == current_nagger
+    	love = complaint.loves.build(nagger: current_nagger)
+      if love.save
+        redirect_to complaints_path
         flash[:notice] = "You love it!"
       else
-      	redirect_to complaint_path(complaint)
+      	redirect_to complaints_path, notice: "Error"
       end
     else
-      flash[:error] = "You can't love yourself!"
+    	redirect_to complaints_path, notice:  "You can't love yourself!"
+    
     end
   end
 
