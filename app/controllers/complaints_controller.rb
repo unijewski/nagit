@@ -4,7 +4,6 @@ class ComplaintsController < ApplicationController
 	expose(:complaints)
 	expose(:love)
 
-
 	def index
 	end
 
@@ -24,22 +23,10 @@ class ComplaintsController < ApplicationController
 		end
 	end
 
-	def love
-    unless @complaint.user == current_user
-      Love.user = current_user
-      if Love.save
-        redirect_to complaint_path(complaint)
-        flash[:notice] = "You love it!"
-      else
-      	redirect_to complaint_path(complaint)
-      end
-    else
-      flash[:error] = "You can't love yourself!"
-    end
-  end
+	
 
 	private
-	
+
 	def complaint_params
 		params.require(:complaint).permit(:name, :content, :url)
 	end
