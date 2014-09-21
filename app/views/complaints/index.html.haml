@@ -17,8 +17,8 @@
 
   - complaints.each do |complaint|
     %tr
-      %td= complaint.name
-      %td= complaint.censored_content
+      %td= complaint.censored(:name)
+      %td= complaint.censored(:content)
       %td= complaint.link
       %td= complaint.loves.count
       %td= link_to 'Show', complaint

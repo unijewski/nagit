@@ -14,11 +14,11 @@ class ComplaintDecorator < Draper::Decorator
     h.link_to "#{url}", url
   end
 
-  def censored_content
+  def censored(field)
     array = Censorship.all.map(&:word).join('|')
 
     regex = /#{array}/i
 
-    content.gsub(regex, h.image_tag('censored.gif')).html_safe
+    self.send(field).gsub(regex, h.image_tag('censored.gif')).html_safe
   end
 end
