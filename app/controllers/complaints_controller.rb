@@ -1,8 +1,9 @@
 class ComplaintsController < ApplicationController
 	before_action :authenticate_nagger!, except: [:index, :show]
   before_action :check_date_create, only: [:create]
-  expose(:complaints)
-  expose(:complaint)
+
+  expose_decorated(:complaints)
+  expose_decorated(:complaint)
   expose(:love)
 
   def index
