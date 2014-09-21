@@ -16,3 +16,11 @@
 //= require turbolinks
 //= require_tree .
 //= require chosen-jquery
+
+$(document).ready(function(){
+	$('.chosen-select').chosen({		
+	    allow_single_deselect: true,
+	    no_results_text: 'No results matched',
+	    width: '200px'
+	});
+});
