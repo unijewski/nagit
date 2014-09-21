@@ -3,6 +3,14 @@
 %p
   %b Name:
   = category.name
+
+%h2
+  Category complaints
+%table.table.table-striped
+  - category.complaints.each do |complaint|
+    %tr
+      %td= complaint.name
+      %td= link_to 'Show', complaint_path(complaint)
   
 
 = link_to 'Edit', edit_category_path(category)

@@ -11,13 +11,14 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
 //= require chosen-jquery
 
-$(document).ready(function(){
+$(document).on('ready page:change', function(){
 	$('.chosen-select').chosen({		
 	    allow_single_deselect: true,
 	    no_results_text: 'No results matched',

@@ -3,6 +3,7 @@ class CategoriesController < ApplicationController
   
   expose(:categories)
   expose(:category)
+  expose(:complaints)
 
 
   def index
