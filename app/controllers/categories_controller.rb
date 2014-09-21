@@ -35,12 +35,16 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    category.destroy
-    redirect_to categories_url, notice: 'Category was successfully destroyed.'
+    if category.destroy
+      redirect_to categories, notice: 'Category was successfully destroyed.'
+    else
+      redirect_to categories, alert: 'Category wasnt destroyed.'
+    end
   end
 
   private
-    def category_params
-      params.require(:category).permit(:name)
-    end
+
+  def category_params
+    params.require(:category).permit(:name)
+  end
 end
