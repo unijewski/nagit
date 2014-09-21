@@ -36,9 +36,9 @@ class CategoriesController < ApplicationController
 
   def destroy
     if category.destroy
-      redirect_to categories, notice: 'Category was successfully destroyed.'
+      redirect_to categories_path, notice: 'Category was successfully destroyed.'
     else
-      redirect_to categories, alert: 'Category wasnt destroyed.'
+      redirect_to categories_path, alert: 'Category wasnt destroyed.'
     end
   end
 
