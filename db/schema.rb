@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20140921084429) do
-=======
 ActiveRecord::Schema.define(version: 20140921093122) do
->>>>>>> 538cd1c96d18d233e7c3659a7314b8929b53112b
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,14 +22,15 @@ ActiveRecord::Schema.define(version: 20140921093122) do
     t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
+  create_table "censorships", force: true do |t|
+    t.string   "word"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "complaint_categories", force: true do |t|
     t.integer  "complaint_id"
     t.integer  "category_id"
-=======
-  create_table "censorships", force: true do |t|
-    t.string   "word"
->>>>>>> 538cd1c96d18d233e7c3659a7314b8929b53112b
     t.datetime "created_at"
     t.datetime "updated_at"
   end
