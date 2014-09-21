@@ -16,6 +16,7 @@ gem 'therubyracer',  platforms: :ruby
 #frontend
 gem 'haml'
 gem 'simple_form', '~> 3.1.0rc'
+gem 'chosen-rails'
 #devise
 gem 'devise'
 # Use jquery as the JavaScript library

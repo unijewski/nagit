@@ -5,6 +5,7 @@ class ComplaintsController < ApplicationController
 	expose(:complaint)
 	expose(:love)
 
+
 	def index
 	end
 

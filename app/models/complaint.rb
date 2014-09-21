@@ -6,4 +6,6 @@ class Complaint < ActiveRecord::Base
   validates :url, format: { with: URL_RGX }, :allow_blank => true
   belongs_to :nagger
   has_many :loves
+  has_many :complaint_categories
+  has_many :categories, through: :complaint_categories, source: :categories
 end

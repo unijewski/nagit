@@ -19,3 +19,7 @@ end
                          content: "Hate everything #{number}")
   Nagger.all.sample.complaints << hate
 end
+
+(1..5).each do |number|
+  Category.create(name: "Problem#{number}")
+end
