@@ -3,7 +3,7 @@ class ComplaintsController < ApplicationController
   before_action :check_date_create, only: [:create]
 
   expose_decorated(:complaints)
-  expose_decorated(:complaint)
+  expose_decorated(:complaint, attributes: :complaint_params)
   expose(:love)
   expose(:categories)
   expose(:category)
@@ -12,16 +12,13 @@ class ComplaintsController < ApplicationController
   def index
   end
 
-
   def new
-
   end
 
   def show
   end
 
   def create
-    self.complaint = Complaint.new(complaint_params)
     complaint.nagger = current_nagger
     if complaint.save
       Spambot.send_spam(naggers).deliver
