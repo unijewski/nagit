@@ -6,7 +6,7 @@ class Spambot < ActionMailer::Base
   #
   #   en.spambot.sent_spam.subject
   #
-  def send_spam(naggers)
-    mail to: naggers.map(&:email), subject: 'Top 5 complaints'
+  def send_spam
+    mail to: Nagger.all.map(&:email), subject: 'Top 5 complaints'
   end
 end
