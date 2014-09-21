@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   before_action :authenticate_nagger!, only: [:new, :edit, :update, :destroy, :create]
   
   expose(:categories)
-  expose(:category)
+  expose(:category, attributes: :category_params)
   expose(:complaints)
 
 
@@ -19,8 +19,6 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    self.category = Category.new(category_params)
-
     if category.save
       redirect_to category, notice: 'Category was successfully created.'
     else
