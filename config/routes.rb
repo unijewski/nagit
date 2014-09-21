@@ -3,9 +3,7 @@ Rails.application.routes.draw do
   root 'complaints#index'
 
   devise_for :naggers
-
   resources :categories
-
   resources :complaints do
     member do
       post 'loveit'

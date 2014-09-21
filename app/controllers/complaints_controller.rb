@@ -4,8 +4,9 @@ class ComplaintsController < ApplicationController
   expose(:complaints)
   expose(:complaint)
   expose(:love)
-
-
+  expose(:categories)
+  expose(:category)
+  expose(:complaint_category)
 
   def index
     @top_5_naggers = Complaint.top_5_naggers
@@ -14,6 +15,7 @@ class ComplaintsController < ApplicationController
 
 
   def new
+
   end
 
   def show
@@ -73,7 +75,7 @@ class ComplaintsController < ApplicationController
   private
 
   def complaint_params
-    params.require(:complaint).permit(:name, :content, :url)
+    params.require(:complaint).permit(:name, :content, :url, category_ids: [])
   end
 
   def check_date_create

@@ -1,4 +1,4 @@
-= simple_form_for complaint.complaint_categories.build(category_id: category.id) do |f|
+= simple_form_for complaint do |f|
   - if complaint.errors.any?
     #error_explanation
       %h2= "#{pluralize(complaint.errors.count, "error")} prohibited this complaint from being saved:"
@@ -15,7 +15,6 @@
     = f.text_field :url, class: 'form-control'
     = f.association :categories,
       collection: Category.all,
-      include_blank: true,
       input_html: { class: 'chosen-select' }
 
   = f.submit 'Save', class: 'btn btn-default'
