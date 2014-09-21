@@ -6,7 +6,7 @@
     %th Email
     %th Count
 
-  - top5_naggers.each do |nagger|
+  - Nagger.top5.each do |nagger|
     %tr
       %td= nagger.id
       %td= nagger.email

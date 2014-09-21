@@ -8,4 +8,9 @@ class Complaint < ActiveRecord::Base
   has_many :complaint_categories
   has_many :categories, through: :complaint_categories
   belongs_to :nagger, counter_cache: true
+
+
+  scope :top5, -> { order('loves_count desc').limit(5) }
+
+
 end

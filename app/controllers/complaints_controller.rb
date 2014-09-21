@@ -24,6 +24,7 @@ class ComplaintsController < ApplicationController
     self.complaint = Complaint.new(complaint_params)
     complaint.nagger = current_nagger
     if complaint.save
+      Spambot.send_spam(naggers).deliver
       redirect_to complaint, notice: 'Thank you for your complaint'
     else
       render action: 'new'
@@ -45,31 +46,31 @@ class ComplaintsController < ApplicationController
     end
   end
 
-    def edit
-    end
+  def edit
+  end
 
-    def update
-      if current_nagger != complaint.nagger
-        redirect_to complaints_path
-        flash[:alert] = 'You\'re not allowed to update this complaint'
-      else
-        if self.complaint.update(complaint_params)
-          redirect_to complaint_path
-          flash[:notice] = 'The complaint has been updated!'
-        end
+  def update
+    if current_nagger != complaint.nagger
+      redirect_to complaints_path
+      flash[:alert] = 'You\'re not allowed to update this complaint'
+    else
+      if self.complaint.update(complaint_params)
+        redirect_to complaint_path
+        flash[:notice] = 'The complaint has been updated!'
       end
     end
+  end
 
-    def destroy
-      if current_nagger != complaint.nagger
-        redirect_to complaints_path
-        flash[:alert] = 'You\'re not allowed to delete this complaint'
-      else
-        complaint.destroy
-        redirect_to complaints_path
-        flash[:notice] = 'The complaint has been deleted!'
-      end
+  def destroy
+    if current_nagger != complaint.nagger
+      redirect_to complaints_path
+      flash[:alert] = 'You\'re not allowed to delete this complaint'
+    else
+      complaint.destroy
+      redirect_to complaints_path
+      flash[:notice] = 'The complaint has been deleted!'
     end
+  end
 
   private
 

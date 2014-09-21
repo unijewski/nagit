@@ -7,4 +7,6 @@ class Nagger < ActiveRecord::Base
   has_many :loves
   has_many :complaints
 
+  scope :top5, -> { order('complaints_count desc').limit(5) }
+
 end

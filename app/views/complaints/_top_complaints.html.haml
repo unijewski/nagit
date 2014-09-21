@@ -7,7 +7,7 @@
     %th Count
     %th Link
 
-  - top5_complaints.each do |complaint|
+  - Complaint.top5.each do |complaint|
     %tr
       %td= complaint.id
       %td= complaint.name
