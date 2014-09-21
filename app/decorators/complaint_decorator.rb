@@ -17,8 +17,8 @@ class ComplaintDecorator < Draper::Decorator
   def censored_content
     array = Censorship.all.map(&:word).join('|')
 
-    regex = /#{array}/
+    regex = /#{array}/i
 
-    content.gsub(regex, '***CENZURA***')
+    content.gsub(regex, h.image_tag('censored.gif')).html_safe
   end
 end
