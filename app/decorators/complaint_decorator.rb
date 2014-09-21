@@ -13,4 +13,12 @@ class ComplaintDecorator < Draper::Decorator
   def link
     h.link_to "#{url}", url
   end
+
+  def censored_content
+    array = Censorship.all.map(&:word).join('|')
+
+    regex = /#{array}/
+
+    content.gsub(regex, '***CENZURA***')
+  end
 end
