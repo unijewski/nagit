@@ -24,7 +24,6 @@ class ComplaintsController < ApplicationController
     self.complaint = Complaint.new(complaint_params)
     complaint.nagger = current_nagger
     if complaint.save
-      Spambot.send_spam(naggers).deliver
       redirect_to complaint, notice: 'Thank you for your complaint'
     else
       render action: 'new'
