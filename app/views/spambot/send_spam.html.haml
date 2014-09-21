@@ -1,0 +1,17 @@
+%h1 Top 5 Complaints
+
+%table
+  %tr
+    %th ID
+    %th Name
+    %th Count
+    %th Link
+
+  - Complaint.top5.each do |complaint|
+    %tr
+      %td= complaint.id
+      %td= complaint.name
+      %td= complaint.loves_count
+      %td= link_to "link", complaint
+
+%br
