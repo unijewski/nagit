@@ -3,6 +3,7 @@ class ComplaintsController < ApplicationController
   before_action :check_date_create, only: [:create]
   expose_decorated(:complaints) { Complaint.order(:id) }
  	expose_decorated(:complaint, attributes: :complaint_params)
+  expose(:love)
   expose(:categories)
   expose(:category)
   expose(:complaint_category)
