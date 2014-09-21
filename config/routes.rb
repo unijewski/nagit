@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-
   root 'complaints#index'
 
   devise_for :naggers
 
   resources :categories
+  resources :censorships
 
   resources :complaints do
     member do

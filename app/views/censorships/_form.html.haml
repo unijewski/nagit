@@ -1,0 +1,13 @@
+= form_for censorship do |f|
+  - if censorship.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(censorship.errors.count, "error")} prohibited this censorship from being saved:"
+      %ul
+        - censorship.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :word
+    = f.text_field :word, class: 'form-control'
+
+  = f.submit 'Save', class: 'btn btn-default'

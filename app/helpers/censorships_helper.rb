@@ -1,0 +1,2 @@
+module CensorshipsHelper
+end
