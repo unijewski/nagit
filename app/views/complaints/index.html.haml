@@ -23,32 +23,7 @@
       %td= link_to 'Edit', edit_complaint_path(complaint)
       %td= link_to 'Destroy', complaint, method: :delete, data: { confirm: 'Are you sure?' }
       %td= link_to "Love it!", loveit_complaint_path(complaint), method: :post
+
+= render 'top_naggers'
+
 %br
-
-
-%h1 Top 5 Naggers
-
-- cache([@top_5_naggers, @top_5_complaints]) do
-  %table.table.table-striped.table-hover
-    %tr 
-      %th Email
-      %th Hates number
-    - @top_5_naggers.each do |nagger|
-      - cache(nagger) do
-        %tr
-          %td= nagger.email
-          %td= nagger.complaints.count
-
-  %br
-
-  %h1 Top 5 Complaints
-
-  %table.table.table-striped.table-hover
-    %tr 
-      %th Complaint Title
-      %th Loves
-    - @top_5_complaints.each do |complaint|
-      - cache(complaint) do
-        %tr
-          %td= complaint.name
-          %td= complaint.loves.count

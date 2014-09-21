@@ -1,0 +1,15 @@
+%h1 Top 5 Naggers
+
+%table.table.table-striped.table-hover
+  %tr
+    %th ID
+    %th Email
+    %th Count
+
+  - top5_naggers.each do |nagger|
+    %tr
+      %td= nagger.id
+      %td= nagger.email
+      %td= nagger.complaints_count
+
+%br
