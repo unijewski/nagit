@@ -7,7 +7,7 @@ class Api::ComplaintsController < ApplicationController
 	end
 
 	def new
-		
+
 	end
 
 	def show
@@ -16,8 +16,6 @@ class Api::ComplaintsController < ApplicationController
 
 	def create
 		#self.complaint = Complaint.new
-		binding.pry
-
 		#complaint.nagger_id = complaint.nagger_id
 		if complaint.save
 			render nothing: true, status: 201
