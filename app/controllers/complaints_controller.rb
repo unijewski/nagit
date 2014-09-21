@@ -2,7 +2,7 @@ class ComplaintsController < ApplicationController
 	before_action :authenticate_nagger!, except: [:index, :show]
   before_action :check_date_create, only: [:create]
 
-  expose_decorated(:complaints)
+  expose_decorated(:complaints) { Complaint.order(:id) }
   expose_decorated(:complaint)
   expose(:love)
   expose(:categories)
@@ -41,7 +41,7 @@ class ComplaintsController < ApplicationController
         redirect_to complaints_path, alert: "You've already loved it!"
       end
     else
-      redirect_to complaints_path, notice:  "You can't love yourself!"
+      redirect_to complaints_path, alert:  "You can't love yourself!"
 
     end
   end
