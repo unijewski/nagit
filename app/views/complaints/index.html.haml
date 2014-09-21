@@ -24,7 +24,7 @@
       %td= link_to 'Show', complaint
       %td= link_to 'Edit', edit_complaint_path(complaint)
       %td= link_to 'Destroy', complaint, method: :delete, data: { confirm: 'Are you sure?' }
-      %td= link_to "Love it!", loveit_complaint_path(complaint), method: :post
+      %td= link_to image_tag('heart.png'), loveit_complaint_path(complaint), method: :post
 
 = render 'top_naggers'
 
