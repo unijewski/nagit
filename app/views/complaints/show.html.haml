@@ -3,12 +3,12 @@
 %p
 
   %b Name
-  = complaint.name
+  = complaint.censored(:name)
   %br
   %br
 
   %b Content
-  = complaint.censored_content
+  = complaint.censored(:content)
   %br
   %br
 
