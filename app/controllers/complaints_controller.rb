@@ -1,9 +1,8 @@
 class ComplaintsController < ApplicationController
 	before_action :authenticate_nagger!, except: [:index, :show]
   before_action :check_date_create, only: [:create]
-
-  expose_decorated(:complaints)
-  expose_decorated(:complaint, attributes: :complaint_params)
+  expose_decorated(:complaints) { Complaint.order(:id) }
+ 	expose_decorated(:complaint, attributes: :complaint_params)
   expose(:love)
   expose(:categories)
   expose(:category)
@@ -21,7 +20,6 @@ class ComplaintsController < ApplicationController
   def create
     complaint.nagger = current_nagger
     if complaint.save
-      Spambot.send_spam(naggers).deliver
       redirect_to complaint, notice: 'Thank you for your complaint'
     else
       render action: 'new'
@@ -38,7 +36,7 @@ class ComplaintsController < ApplicationController
         redirect_to complaints_path, alert: "You've already loved it!"
       end
     else
-      redirect_to complaints_path, notice:  "You can't love yourself!"
+      redirect_to complaints_path, alert:  "You can't love yourself!"
 
     end
   end
