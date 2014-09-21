@@ -17,6 +17,8 @@
             Nagit
         %p.navbar-text.navbar-right
           - if nagger_signed_in?
+            = link_to 'Categories', categories_path, :class => 'navbar-link'
+            |
             = link_to 'Censorship', censorships_path, :class => 'navbar-link'
             |
             = link_to 'Edit your profile', edit_nagger_registration_path, :class => 'navbar-link'
