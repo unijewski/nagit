@@ -1,6 +1,8 @@
 %h1 Listing complaints
 
 = link_to 'New complaint', new_complaint_path, class: 'btn btn-info', id: 'new_complaint_btn'
+%br
+%br
 
 %table.table.table-striped.table-hover
   %tr
@@ -17,38 +19,14 @@
     %tr
       %td= complaint.name
       %td= complaint.content
-      %td= complaint.url
+      %td= complaint.link
       %td= complaint.loves.count
       %td= link_to 'Show', complaint
       %td= link_to 'Edit', edit_complaint_path(complaint)
       %td= link_to 'Destroy', complaint, method: :delete, data: { confirm: 'Are you sure?' }
       %td= link_to "Love it!", loveit_complaint_path(complaint), method: :post
+
+= render 'top_naggers'
+
+= render 'top_complaints'
 %br
-
-
-%h1 Top 5 Naggers
-
-- cache([@top_5_naggers, @top_5_complaints]) do
-  %table.table.table-striped.table-hover
-    %tr 
-      %th Email
-      %th Hates number
-    - @top_5_naggers.each do |nagger|
-      - cache(nagger) do
-        %tr
-          %td= nagger.email
-          %td= nagger.complaints.count
-
-  %br
-
-  %h1 Top 5 Complaints
-
-  %table.table.table-striped.table-hover
-    %tr 
-      %th Complaint Title
-      %th Loves
-    - @top_5_complaints.each do |complaint|
-      - cache(complaint) do
-        %tr
-          %td= complaint.name
-          %td= complaint.loves.count

@@ -8,7 +8,7 @@
 
 Nagger.delete_all
 Complaint.delete_all
-
+Censorship.delete_all
 
 (1..5).each do |number|
   Nagger.create( email: "joe.doe#{number}@example.com", password: "test1234", password_confirmation: "test1234")
@@ -24,3 +24,7 @@ end
 (1..5).each do |number|
   Category.create(name: "Problem#{number}")
 end
+
+Censorship.create(word: 'fuck')
+Censorship.create(word: 'shit')
+

@@ -1,16 +1,15 @@
 class ComplaintsController < ApplicationController
 	before_action :authenticate_nagger!, except: [:index, :show]
   before_action :check_date_create, only: [:create]
-  expose(:complaints)
-  expose(:complaint)
+
+  expose_decorated(:complaints)
+  expose_decorated(:complaint)
   expose(:love)
   expose(:categories)
   expose(:category)
   expose(:complaint_category)
 
   def index
-    @top_5_naggers = Complaint.top_5_naggers
-    @top_5_complaints = Complaint.top_5_complaints
   end
 
 

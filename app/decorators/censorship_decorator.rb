@@ -1,4 +1,4 @@
-class ComplaintDecorator < Draper::Decorator
+class CensorshipDecorator < Draper::Decorator
   delegate_all
 
   # Define presentation-specific methods here. Helpers are accessed through
@@ -10,7 +10,4 @@ class ComplaintDecorator < Draper::Decorator
   #     end
   #   end
 
-  def link
-    h.link_to "#{url}", url
-  end
 end

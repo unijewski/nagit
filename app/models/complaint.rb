@@ -4,20 +4,8 @@ class Complaint < ActiveRecord::Base
   validates :name, presence: true
   validates :content, presence: true
   validates :url, format: { with: URL_RGX }, :allow_blank => true
-
-  belongs_to :nagger
   has_many :loves
   has_many :complaint_categories
   has_many :categories, through: :complaint_categories
-  
-
-
-  def self.top_5_naggers
-    group(:nagger_id).order('count_all desc').count.keys.map { |index| Nagger.find(index)}.first(5)
-  end
-
-  def self.top_5_complaints
-    Love.group(:complaint_id).order('count_all desc').count.keys.map { |index| Complaint.find(index)}.first(5)
-  end
-
+  belongs_to :nagger, counter_cache: true
 end

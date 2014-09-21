@@ -1,0 +1,19 @@
+%h1 Listing complaints
+
+= link_to 'New word', new_censorship_path, class: 'btn btn-info', id: 'new_censorship_btn'
+%br
+%br
+
+%table.table.table-striped.table-hover
+  %tr
+    %th ID
+    %th Word
+    %th
+    %th
+
+  - censorships.each do |censorship|
+    %tr
+      %td= censorship.id
+      %td= censorship.word
+      %td= link_to 'Edit', edit_censorship_path(censorship)
+      %td= link_to 'Destroy', censorship, method: :delete, data: { confirm: 'Are you sure?' }
