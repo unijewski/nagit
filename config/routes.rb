@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root 'complaints#index'
 
+  namespace :api do
+    resources :complaints
+  end
+
   devise_for :naggers
   resources :categories
 
